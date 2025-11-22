@@ -37,7 +37,7 @@ const Footer = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 90%", // Triggers when top of footer hits 90% of viewport
-        toggleActions: "restart none none reverse",
+        // toggleActions: "restart none none reverse",
       }
     });
 

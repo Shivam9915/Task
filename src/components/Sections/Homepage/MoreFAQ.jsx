@@ -21,16 +21,14 @@ const AccordionItem = ({ index, question, answer, isOpen, onToggle }) => {
         { 
           opacity: 0, 
           y: 8, 
-          // filter: "blur(6px)", 
         },
         {
           opacity: 1,
           y: 0,
-          // filter: "blur(0px)",
           duration: 0.5,
           stagger: 0.01, // Fast ripple effect
           ease: "power2.out",
-          delay: 0.1 // Wait slightly for accordion to start opening
+          delay: 0.1 
         }
       );
     }
@@ -65,7 +63,6 @@ const AccordionItem = ({ index, question, answer, isOpen, onToggle }) => {
         }`}
       >
         <div ref={contentRef} className="overflow-hidden">
-          {/* Added padding-bottom here instead of on 'p' to avoid clipping during transition */}
           <div className="pb-5"> 
             <p className="text-gray-600 font-poppins pt-1 leading-relaxed">
               {words.map((word, i) => (
@@ -94,43 +91,44 @@ const MoreFAQ = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 75%",
-        end: "bottom 20%",
-        toggleActions: "play reverse play reverse",
+        start: "top 80%",
+        // CHANGED: 'none' at the end prevents it from reversing/disappearing on scroll up
+        toggleActions: "play none none none", 
       }
     });
 
-    // 1. Text Content Entry
-    tl.from(".more-faq-label", {
-      x: -20,
+    // 1. Image Curtain Reveal (Unrolls from bottom)
+    tl.fromTo(".faq-image-wrapper", 
+      { clipPath: "inset(100% 0% 0% 0%)" }, // Start hidden at bottom
+      { 
+        clipPath: "inset(0% 0% 0% 0%)", // Reveal fully
+        duration: 1.2,
+        ease: "power4.inOut" 
+      }
+    )
+    
+    // 2. Text Slide Up (Simultaneous with image)
+    .from(".more-faq-label", {
+      y: 20,
       opacity: 0,
       duration: 0.6,
       ease: "power2.out"
-    })
+    }, "-=0.8")
     .from(".more-faq-title", {
-      x: -30,
+      y: 30,
       opacity: 0,
       duration: 0.8,
       ease: "power3.out"
-    }, "-=0.4")
-    
-    // 2. Image Entry
-    .from(".more-faq-image", {
-      x: 50,
-      opacity: 0,
-      scale: 0.95,
-      duration: 1,
-      ease: "power3.out"
     }, "-=0.6")
-
-    // 3. List Entry
+    
+    // 3. Accordion Items Cascade
     .from(".accordion-item", {
       y: 20,
       opacity: 0,
       duration: 0.6,
       stagger: 0.1,
       ease: "power2.out"
-    }, "-=0.8");
+    }, "-=0.4");
 
   }, { scope: containerRef });
   
@@ -190,13 +188,16 @@ const MoreFAQ = () => {
           </div>
         </div>
 
-        {/* Right Column: Image */}
-        <div className="more-faq-image lg:w-[430px] h-full mt-10 lg:mt-0 lg:ml-39 relative">
-          <img
-            src="/Assets/villa3.png"
-            alt="Building with vertical gardens"
-            className="w-full h-auto object-cover rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          />
+        {/* Right Column: Image with Wrapper for Clip-Path Animation */}
+        <div className="lg:w-[430px] h-full mt-10 lg:mt-0 lg:ml-39 relative">
+          {/* Wrapper div handles the curtain reveal */}
+          <div className="faq-image-wrapper h-full w-full overflow-hidden rounded-lg shadow-xl">
+            <img
+              src="/Assets/villa3.png"
+              alt="Building with vertical gardens"
+              className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
         </div>
       </div>
     </section>
