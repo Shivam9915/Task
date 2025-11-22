@@ -153,7 +153,7 @@ const Faq = () => {
   };
 
   return (
-    <section ref={containerRef} className="bg-stone-100 py-24 font-sans overflow-hidden">
+    <section ref={containerRef} className="bg-stone-100 py-16 font-sans overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         {/* Left Column: FAQs */}
         <div className="flex flex-col">

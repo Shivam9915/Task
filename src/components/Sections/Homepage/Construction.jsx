@@ -73,7 +73,7 @@ const Construction = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: el,
-          start: "top 85%", // Starts when top of item hits 85% of viewport height
+          start: "top 55%", // Starts when top of item hits 85% of viewport height
           end: "top 10%",
           // toggleActions: "play reverse play reverse", 
           // Triggers every time on scroll

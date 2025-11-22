@@ -61,7 +61,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="hero-animate-text mt-5">
+          <div className="hero-animate-text mt-4">
             <a
               href="#"
               onClick={toggleReadMore}
@@ -73,7 +73,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side: Image */}
-        <div className="hero-animate-img bg-red-800 rounded-2xl shadow-lg h-[500px]">
+        <div className="hero-animate-img bg-red-800 rounded-2xl shadow-lg lg:h-[450px] h-[300px]">
           <img
             src="/Assets/Hero.png"
             alt="Modern residential building"

@@ -22,7 +22,6 @@ const About = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 70%",
-        scrub:1, 
       }
     });
 
@@ -35,7 +34,7 @@ const About = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top center",
-        toggleActions: "play none none reverse",
+        // toggleActions: "play none none reverse",
       }
     });
 
@@ -84,8 +83,21 @@ const About = () => {
             src="/Assets/About.png"
             alt="Elegant building interior"
             // Added transition for shadow and border
-            className="rounded-lg h-[500px] shadow-xl w-full object-cover will-change-transform hover:shadow-[0_20px_50px_rgba(181,135,24,0.4)] transition-shadow duration-300"
-          />
+ className="
+    rounded-lg 
+    w-full 
+    object-cover 
+    shadow-xl 
+    will-change-transform 
+    hover:shadow-[0_20px_50px_rgba(181,135,24,0.4)] 
+    transition-shadow duration-300
+
+    h-[260px]
+    sm:h-[320px]
+    md:h-[380px]
+    lg:h-[450px]
+    xl:h-[500px]
+  "          />
         </div>
 
         {/* Right Side: Text Content */}
@@ -93,7 +105,7 @@ const About = () => {
           <h5 className="about-text text-[rgb(181,135,24)] font-bold text-3xl">
             About us
           </h5>
-          <h2 className="about-text mt-8 font-times text-4xl font-bold text-gray-800">
+          <h2 className="about-text mt-5 font-times text-2xl font-bold text-gray-800">
             The Illusion of Choice Flats or Chaos, Both Are Traps.
           </h2>
           <p className="about-text mt-6 text-gray-600 leading-relaxed font-poppins">
