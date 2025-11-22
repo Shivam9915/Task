@@ -103,7 +103,7 @@ const LatestArticle = () => {
         {/* Header */}
         <div className="section-header flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
           <div>
-             <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+             <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 ">
               Latest Articles
             </h2>
             {/* <p className="text-gray-500 text-lg max-w-lg">

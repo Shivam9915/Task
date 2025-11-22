@@ -45,7 +45,7 @@ const FaqItem = ({ faq, isOpen, onClick }) => {
         onClick={onClick}
         className="w-full flex justify-between items-center text-left group"
       >
-        <span className={`text-xl font-semibold font-poppins transition-colors duration-300 ${isOpen ? 'text-[#B58718]' : 'text-gray-800'} group-hover:text-[#B58718]`}>
+        <span className={`text-lg font-semibold font-poppins transition-colors duration-300 ${isOpen ? 'text-[#B58718]' : 'text-gray-800'} group-hover:text-[#B58718]`}>
           {faq.question}
         </span>
         {isOpen ? (
