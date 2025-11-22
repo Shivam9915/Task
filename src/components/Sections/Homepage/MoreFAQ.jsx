@@ -21,12 +21,12 @@ const AccordionItem = ({ index, question, answer, isOpen, onToggle }) => {
         { 
           opacity: 0, 
           y: 8, 
-          filter: "blur(6px)", 
+          // filter: "blur(6px)", 
         },
         {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
+          // filter: "blur(0px)",
           duration: 0.5,
           stagger: 0.01, // Fast ripple effect
           ease: "power2.out",

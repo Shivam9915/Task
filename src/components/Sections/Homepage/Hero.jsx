@@ -44,7 +44,7 @@ const Hero = () => {
         
         {/* Left Side: Text Content */}
         <div className="flex flex-col justify-center">
-          <h1 className="hero-animate-text text-5xl md:text-6xl font-times font-bold text-gray-800 leading-17">
+          <h1 className="hero-animate-text text-3xl md:text-6xl font-times font-bold text-gray-800 leading-tight tracking-tight">
             For Visionaries who demand more than just ordinary.
           </h1>
           
