@@ -21,8 +21,8 @@ const About = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 70%", 
-        toggleActions: "play none none reverse",
+        start: "top 70%",
+        scrub:1, 
       }
     });
 
